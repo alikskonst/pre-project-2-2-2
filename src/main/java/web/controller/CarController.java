@@ -24,13 +24,13 @@ public class CarController {
     );
 
     @GetMapping(value = "/cars")
-    public String cars1(ModelMap model) {
+    public String getAllCars(ModelMap model) {
         model.addAttribute("carList", carList);
         return "cars";
     }
 
     @GetMapping(value = "/cars?count={count}")
-    public String cars2(ModelMap model, @PathVariable int count) {
+    public String getCountOfCars(ModelMap model, @PathVariable int count) {
         model.addAttribute("carList", count >= carList.size() ? carList : carList.subList(0, count));
         return "cars";
     }
